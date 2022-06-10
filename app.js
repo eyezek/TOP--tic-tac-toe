@@ -13,17 +13,22 @@ const gameBoard = (function () {
   "use strict";
   const board = ["", "", "", "", "", "", "", "", ""];
 
-  const setSquare = function (index, marker) {};
+  const setSquare = function (array, marker) {
+    array[index] = player.marker;
+  };
   return {
-    _gameBoard: function () {
-      board;
-    },
+    board,
+    setSquare,
   };
 })();
 
 const playerFactory = function (name, marker) {
   return { name, marker };
 };
+
+playerFactory("player1", "X");
+
+playerFactory("player2", "O");
 
 const displayController = (function () {
   // placeholder
