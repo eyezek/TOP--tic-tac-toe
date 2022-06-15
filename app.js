@@ -11,6 +11,9 @@ square9 = document.getElementById("square9");
 playerText = document.getElementById("player");
 winnerText = document.getElementById("winnerText");
 resetButton = document.getElementById("reset");
+resetButton.addEventListener("click", function () {
+  location.reload();
+});
 let winner;
 
 const gameBoard = (function () {
@@ -45,7 +48,6 @@ const gameBoard = (function () {
       if (winningConditions[i].every(isX) || winningConditions[i].every(isO)) {
         winner = true;
         console.log(winner);
-        break;
       } else {
         winner = false;
         console.log(winner);
@@ -72,8 +74,6 @@ const player2 = playerFactory("player2", "O");
 
 let currentPlayer = player1;
 
-playerText.innerHTML = "Player 1/X's Turn!";
-
 const displayController = (function () {
   "use strict";
   const displayPlayer = function () {
@@ -89,8 +89,6 @@ const displayController = (function () {
       winnerText.innerHTML = "Game over! Three in a row!";
     }
   };
-
-  const resetGame = function () {};
 
   return {
     displayPlayer,
